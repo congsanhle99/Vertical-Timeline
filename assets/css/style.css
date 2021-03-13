@@ -1,0 +1,112 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.timeline-section {
+    background-color: #24292d;
+    min-height: 100vh;
+    padding: 100px 15px;
+}
+
+.timeline-items {
+    max-width: 1170px;
+    /* background-color: aqua; */
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.timeline-items::before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    background-color: #2f363e;
+    /* sao là left 50%  */
+    left: calc(50% - 1px); /* trừ 1 px tí gắn cái dot */
+}
+
+.timeline-item {
+    margin-bottom: 40px;
+    width: 100%;
+    position: relative;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+/* Các item lẻ lệch qua trái */
+.timeline-item:nth-child(odd) {
+    padding-right: calc(50% + 30px);
+    text-align: right;
+}
+
+
+/* Các item chẵn lệch qua phải */
+
+.timeline-item:nth-child(even) {
+    padding-left: calc(50% + 30px);
+}
+
+.timeline-dot {
+    height: 16px;
+    width: 16px;
+    background-color: #eaa023;
+    border-radius: 50%;
+    position: absolute;
+    left: calc(50% - 8px);
+    top: 10px;
+}
+
+.timeline-date {
+    font-size: 18px;
+    color: #eaa023;
+    margin: 6px 0 12px;
+}
+
+.timeline-content {
+    background-color: #2f363e;
+    padding: 24px;
+    border-radius: 5px;
+}
+
+.timeline-content h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff;
+    margin: 0 0 12px;
+    text-transform: capitalize;
+}
+
+.timeline-content p {
+    font-size: 16px;
+    font-weight: 400;
+    color: #c8c8c8;
+    line-height: 1.6em;
+}
+
+/* ===================== RESPONSIVE ========================= */
+@media(max-width: 768px) {
+    .timeline-items::before {
+        left: 0.45em;
+    }
+    .timeline-item:nth-child(odd) {
+        padding-right: 0;
+        text-align: left;
+    }
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+        padding-left: 36px;
+    }
+    .timeline-dot {
+        left: 0;
+    }
+}
